@@ -34,10 +34,11 @@
 
 .photo-list__user-details {
   display: flex;
+  align-items: center;
 }
 
 .photo-list__user-info {
-  margin-top: 5px;
+  // margin-top: 5px;
   font-weight: 700;
   font-size: 12px;
   margin-left: 8px;
@@ -46,3 +47,13 @@
 .photo-list__user-location {
   color: #838383;
 }
+
+// .photo-list__item{
+//   border: 10px solid pink;
+
+//   img{
+//     height: 100px;
+
+//   }
+
+// }
