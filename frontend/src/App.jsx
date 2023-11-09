@@ -33,7 +33,8 @@ const App = () => {
           location={data[0].location}
           profile={data[0].profile}
         />
-      ))}
+        ))}
+       
     </div>
   );
 };

@@ -12,3 +12,14 @@
   flex: 0 1 30%;
   margin: 5px;
 }
+
+
+.photo-list__fav-icon {
+  &.active {
+      background-color: #f00000;
+  }
+  &.inactive {
+    /* Style for inactive state (e.g., empty heart) */
+    background-color: transparent;
+  }
+}
