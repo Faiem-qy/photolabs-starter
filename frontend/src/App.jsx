@@ -4,18 +4,18 @@ import PhotoListItem from "./components/PhotoListItem";
 import "./App.scss";
 import PhotoList from "./components/PhotoList";
 
-const data = [
-  {
-    id: "1",
-    location: {
-      city: "Montreal",
-      country: "Canada",
-    },
-    imageSource: `${process.env.PUBLIC_URL}/Image-1-Regular.jpeg`,
-    username: "Joe Example",
-    profile: `${process.env.PUBLIC_URL}/profile-1.jpg`,
-  },
-];
+// const data = [
+//   {
+//     id: "1",
+//     location: {
+//       city: "Montreal",
+//       country: "Canada",
+//     },
+//     imageSource: `${process.env.PUBLIC_URL}/Image-1-Regular.jpeg`,
+//     username: "Joe Example",
+//     profile: `${process.env.PUBLIC_URL}/profile-1.jpg`,
+//   },
+// ];
 
 // add variable to reuse photos template
 const photos = new Array(3).fill(0);
@@ -24,7 +24,8 @@ const photos = new Array(3).fill(0);
 const App = () => {
   return (
     <div className="App">
-       {photos.map((_, index) => (
+      <PhotoList/>
+       {/* {photos.map((_, index) => (
         <PhotoListItem
           key={index + 1}
           username={data[0].username}
@@ -33,7 +34,7 @@ const App = () => {
           location={data[0].location}
           profile={data[0].profile}
         />
-        ))}
+        ))} */}
        
     </div>
   );
