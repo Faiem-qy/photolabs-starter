@@ -3,6 +3,7 @@ import React from "react";
 import PhotoListItem from "./components/PhotoListItem";
 import "./App.scss";
 import PhotoList from "./components/PhotoList";
+import TopicList from "components/TopicList";
 
 // const data = [
 //   {
@@ -24,6 +25,7 @@ const photos = new Array(3).fill(0);
 const App = () => {
   return (
     <div className="App">
+      <TopicList/>
       <PhotoList/>
        {/* {photos.map((_, index) => (
         <PhotoListItem
