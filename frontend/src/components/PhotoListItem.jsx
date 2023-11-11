@@ -5,13 +5,13 @@ import PhotoFavButton from "./PhotoFavButton";
 
 const PhotoListItem = (props) => {
   /* Insert React */
-  const { username, imageSource, id, location, profile } = props;
+  const { username, imageSource, id, location, profile, liked, setLiked } = props;
 
   return (
     <>
     <div className="photo-list__item">
       
-      <PhotoFavButton/>
+      <PhotoFavButton id={id} liked={liked} setLiked={setLiked}/>
       <img
         className="photo-list__image"
         src={imageSource}

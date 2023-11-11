@@ -1,13 +1,15 @@
-import React, { useCallback, useState } from "react";
+import React, { useState , useEffect} from "react";
 
 import FavIcon from "./FavIcon";
 import "../styles/PhotoFavButton.scss";
 
-function PhotoFavButton() {
+function PhotoFavButton({id, liked, setLiked}) {
   const [isActive, setIsActive] = useState(false);
 
-  const handleClick = () => {
+  function handleClick(){
     setIsActive(!isActive);
+    setLiked((prev) => [...prev, id]);
+    console.log(liked)
   };
 
 
