@@ -10,7 +10,7 @@ const HomeRoute = () => {
   return (
     <div className="home-route">
       {/* Insert React */}
-      <TopNavigation/>
+      <TopNavigation liked={liked} setLiked={setLiked}/>
       <PhotoList liked={liked} setLiked={setLiked}/>
     </div>
   );

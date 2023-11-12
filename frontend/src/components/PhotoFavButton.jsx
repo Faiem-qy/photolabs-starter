@@ -14,11 +14,11 @@ function PhotoFavButton({id, liked, setLiked}) {
 
 
   return (
-    <div className={`photo-list__fav-icon ${isActive ? 'active' : 'inactive'}`}
+    <div className="photo-list__fav-icon"
     onClick={handleClick}
     >
       <div className="photo-list__fav-icon-svg">
-        <FavIcon/>
+        <FavIcon selected={isActive}/>
       </div>
     </div>
   );
