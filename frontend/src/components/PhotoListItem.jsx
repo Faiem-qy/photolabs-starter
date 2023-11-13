@@ -1,28 +1,17 @@
-import React from "react";
+import React from 'react';
+import '../styles/PhotoListItem.scss';
+import PhotoFavButton from './PhotoFavButton';
 
-import "../styles/PhotoListItem.scss";
-import PhotoFavButton from "./PhotoFavButton";
 
 const PhotoListItem = (props) => {
-  /* Insert React */
-  const { username, imageSource, id, location, profile, liked, setLiked } = props;
+  const { username, imageSource, id, location, profile, liked, setLiked, openModal } = props; // added openModal
 
   return (
-    <>
-    <div className="photo-list__item">
-      
-      <PhotoFavButton id={id} liked={liked} setLiked={setLiked}/>
-      <img
-        className="photo-list__image"
-        src={imageSource}
-        alt={`Photo ${id}`}
-      />
+    <div className="photo-list__item" onClick={() => openModal(props)}> {/* added onclick listener to open modal */}
+      <PhotoFavButton id={id} liked={liked} setLiked={setLiked} />
+      <img className="photo-list__image" src={imageSource} alt={`Photo ${id}`} />
       <div className="photo-list__user-details">
-        <img
-          className="photo-list__user-profile"
-          src={profile}
-          alt={`Profile of ${username}`}
-        />
+        <img className="photo-list__user-profile" src={profile} alt={`Profile of ${username}`} />
         <div className="photo-list__user-info">
           <h3>{username}</h3>
           <p className="photo-list__user-location">
@@ -31,7 +20,6 @@ const PhotoListItem = (props) => {
         </div>
       </div>
     </div>
-    </>
   );
 };
 

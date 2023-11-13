@@ -5,10 +5,10 @@ import PhotoListItem from "./PhotoListItem";
 
 import photos from "mocks/photos";
 
-const PhotoList = ({liked, setLiked}) => {
+
+const PhotoList = ({ liked, setLiked, openModal }) => {
   return (
     <ul className="photo-list">
-      {/* Insert React */}
       {photos.map((photo) => (
         <PhotoListItem
           key={photo.id}
@@ -17,9 +17,11 @@ const PhotoList = ({liked, setLiked}) => {
           id={photo.id}
           location={photo.location}
           profile={photo.user.profile}
-          liked={liked} setLiked={setLiked}
+          liked={liked}
+          setLiked={setLiked}
+          openModal={openModal} // Pass the openModal
         />
-        ))}
+      ))}
     </ul>
   );
 };
