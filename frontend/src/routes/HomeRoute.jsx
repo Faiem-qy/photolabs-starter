@@ -14,13 +14,19 @@ const HomeRoute = () => {
     setModalOpen(true);
   };
 
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+// function to close modal
+  
 
 
   return (
     <div className="home-route">
       <TopNavigation liked={liked} setLiked={setLiked} />
       <PhotoList liked={liked} setLiked={setLiked} openModal={openModal} />
-      <PhotoDetailsModal isOpen={modalOpen} />
+      <PhotoDetailsModal isOpen={modalOpen} onClose={closeModal}/> 
+      {/* added functionality to close modal */}
     </div>
   );
 };
