@@ -19,7 +19,7 @@ const PhotoList = ({ liked, setLiked, openModal }) => {
           profile={photo.user.profile}
           liked={liked}
           setLiked={setLiked}
-          openModal={openModal} // Pass the openModal
+          openModal={() => openModal(photo)} // Pass the openModal
         />
       ))}
     </ul>
