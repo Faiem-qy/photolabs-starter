@@ -3,13 +3,11 @@ import React from "react";
 import "../styles/PhotoList.scss";
 import PhotoListItem from "./PhotoListItem";
 
-import photos from "mocks/photos";
 
-
-const PhotoList = ({ liked, setLiked, openModal }) => {
+const PhotoList = ({ photoData, liked, setLiked, openModal }) => {
   return (
     <ul className="photo-list">
-      {photos.map((photo) => (
+      {photoData.map((photo) => (
         <PhotoListItem
           key={photo.id}
           id={photo.id}
@@ -21,7 +19,7 @@ const PhotoList = ({ liked, setLiked, openModal }) => {
           // profile={photo.user.profile}
           liked={liked}
           setLiked={setLiked}
-          openModal={openModal} // Pass the openModal
+          openModal={openModal}
         />
       ))}
     </ul>

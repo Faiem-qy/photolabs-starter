@@ -4,6 +4,7 @@ import "../styles/PhotoDetailsModal.scss";
 import closeSymbol from "../assets/closeSymbol.svg";
 import photos from "mocks/photos";
 import PhotoFavButton from "components/PhotoFavButton";
+import PhotoList from "components/PhotoList";
 
 const similarPhotosObj={}
 const getSimilarPhotos = photos.map((photo) => {
@@ -16,8 +17,7 @@ const getSimilarPhotos = photos.map((photo) => {
 });
 
 
-const PhotoDetailsModal = ({ isOpen, closeModal, selectedPhoto, liked,
-  setLiked }) => {
+const PhotoDetailsModal = ({ isOpen, closeModal, selectedPhoto, liked, setLiked ,openModal }) => {
   console.log("Selected photo in modal:", selectedPhoto);
   if (!isOpen || !selectedPhoto) {
     return null;
@@ -54,38 +54,42 @@ const PhotoDetailsModal = ({ isOpen, closeModal, selectedPhoto, liked,
               </div>
             </div>
           </div>
+            <hr></hr>
 
 
           <div className="similar-photos">
             <h3 className="photo-details-modal__images">Similar Photos</h3>
-            <ul>
+            <div className="photo-details-modal__photographer-details">
             <>   
-              {Object.values(similarPhotosObj).map((photoData) => {
-                if (photoData.id === selectedPhoto.id) {
-                  console.log("Photodata of Clicked Photo", photoData)
-                  return Object.values(photoData.similar_photos).map((similar) => (
-                    <li className="photo-details-modal__images" key={similar.id}>
-                      <PhotoFavButton id={similar.id} liked={liked} setLiked={setLiked} />
-                        <img className="photo-details-modal__image"
-                          src={similar.urls.regular}
-                          alt={`Similar version of ${similar.id}`}
-                        />
-                      <div className="photo-details-modal__photographer-info">
-                        <img
-                          className="photo-details-modal__photographer-profile"
-                          src={similar.user.profile}
-                        />
-                        <span>{selectedPhoto.user.name}</span>
-                        <div className="photo-details-modal__photographer-location">
-                          {similar.location.city}, {similar.location.country}
-                        </div>
-                      </div>
-                    </li>
-                  ));
+            {Object.values(similarPhotosObj).map((photoData, i) => {
+              if (photoData.id === selectedPhoto.id) {
+                // return Object.values(photoData.similar_photos).map((similar, i) => (
+                  return(
+                    // console.log("Photodata of Clicked Photo", Object.values(photoData.similar_photos))
+                    <PhotoList key={selectedPhoto.id} photoData={Object.values(photoData.similar_photos)} liked={liked} setLiked={setLiked} openModal={openModal} />
+                  )
+                    // <li className="photo-details-modal__images" key={similar.id}>
+                      // <PhotoFavButton id={similar.id} liked={liked} setLiked={setLiked} />
+                    //     <img className="photo-details-modal__image"
+                    //       src={similar.urls.regular}
+                    //       alt={`Similar version of ${similar.id}`}
+                    //     />
+                    //   <div className="photo-details-modal__photographer-info">
+                    //     <img
+                    //       className="photo-details-modal__photographer-profile"
+                    //       src={similar.user.profile}
+                    //     />
+                    //     <span>{selectedPhoto.user.name}</span>
+                    //     <div className="photo-details-modal__photographer-location">
+                    //       {similar.location.city}, {similar.location.country}
+                    //     </div>
+                    //   </div>
+                    // </li>
+                  // ));
                 }
               })}
             </>
-            </ul>
+            </div>
           </div>
         </div>
       )}

@@ -1,8 +1,9 @@
 .photo-list__item {
   margin: 24px;
-  padding: 8px;
+  padding: 16px;
   border-width: 0.5px;
-  border-color: lightgray;
+  border: 1px #E6E6E6;
+  background-color: #FFFFFF;
   border-style: solid;
   border-radius: 8px;
   max-width: fit-content;
@@ -47,13 +48,3 @@
 .photo-list__user-location {
   color: #838383;
 }
-
-// .photo-list__item{
-//   border: 10px solid pink;
-
-//   img{
-//     height: 100px;
-
-//   }
-
-// }

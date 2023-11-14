@@ -5,6 +5,8 @@ import TopNavigation from "components/TopNavigationBar";
 import PhotoList from "components/PhotoList";
 import PhotoDetailsModal from "./PhotoDetailsModal";
 
+import photos from "mocks/photos";
+
 const HomeRoute = () => {
   const [liked, setLiked] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
@@ -27,10 +29,10 @@ const HomeRoute = () => {
   return (
     <div className="home-route">
       <TopNavigation liked={liked} setLiked={setLiked} />
-      <PhotoList liked={liked} setLiked={setLiked} openModal={openModal} />
+      <PhotoList photoData={photos} liked={liked} setLiked={setLiked} openModal={openModal} />
       {/* <PhotoDetailsModal isOpen={modalOpen} onClose={closeModal} /> */}
       {modalOpen && (
-        <PhotoDetailsModal isOpen={modalOpen} closeModal={closeModal} selectedPhoto={selectedPhoto} liked={liked} setLiked={setLiked}/>
+        <PhotoDetailsModal isOpen={modalOpen} closeModal={closeModal} selectedPhoto={selectedPhoto} liked={liked} setLiked={setLiked} openModal={openModal}/>
       )}
       {/* added functionality to close modal */}
     </div>

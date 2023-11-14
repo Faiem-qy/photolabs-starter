@@ -24,9 +24,7 @@ const PhotoListItem = (props) => {
         className="photo-list__image"
         src={urls.regular}
         alt={`Photo ${id}`}
-        onClick={() => {
-          // console.log("PhotoListItem props", props); 
-          openModal(props)}}
+        onClick={() => {openModal(props)}}
       />
       <div className="photo-list__user-details">
         <img
