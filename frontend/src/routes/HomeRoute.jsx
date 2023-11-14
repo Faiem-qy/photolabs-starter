@@ -11,16 +11,16 @@ const HomeRoute = () => {
   const [selectedPhoto, setSelectedPhoto] = useState(null);
 
   const openModal = (photoData) => {
-    console.log("Selected photo data", photoData);
-    setSelectedPhoto(photoData);
+    // console.log("HomeRoute - Selected photo data - comes from PhotoListItem", photoData);
     setModalOpen(true);
+    setSelectedPhoto(photoData);
     // added console.log to log the data of the photo when the photo is clicked and the modal is open
   };
 
   const closeModal = () => {
     console.log("closing modal");
-    setSelectedPhoto(null);
     setModalOpen(false);
+    // setSelectedPhoto(null);
   };
   // function to close modal
 
@@ -30,7 +30,7 @@ const HomeRoute = () => {
       <PhotoList liked={liked} setLiked={setLiked} openModal={openModal} />
       {/* <PhotoDetailsModal isOpen={modalOpen} onClose={closeModal} /> */}
       {modalOpen && (
-        <PhotoDetailsModal isOpen={modalOpen} onClose={closeModal} selectedPhoto={selectedPhoto} />
+        <PhotoDetailsModal isOpen={modalOpen} closeModal={closeModal} selectedPhoto={selectedPhoto} />
       )}
       {/* added functionality to close modal */}
     </div>

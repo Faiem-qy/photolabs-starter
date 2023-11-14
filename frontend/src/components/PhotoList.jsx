@@ -12,14 +12,16 @@ const PhotoList = ({ liked, setLiked, openModal }) => {
       {photos.map((photo) => (
         <PhotoListItem
           key={photo.id}
-          username={photo.user.username}
-          imageSource={photo.urls.regular}
           id={photo.id}
           location={photo.location}
-          profile={photo.user.profile}
+          urls={photo.urls}
+          user={photo.user}
+          // username={photo.user.username}
+          // imageSource={photo.urls.regular}
+          // profile={photo.user.profile}
           liked={liked}
           setLiked={setLiked}
-          openModal={() => openModal(photo)} // Pass the openModal
+          openModal={openModal} // Pass the openModal
         />
       ))}
     </ul>
