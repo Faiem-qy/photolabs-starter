@@ -30,7 +30,7 @@ const HomeRoute = () => {
       <PhotoList liked={liked} setLiked={setLiked} openModal={openModal} />
       {/* <PhotoDetailsModal isOpen={modalOpen} onClose={closeModal} /> */}
       {modalOpen && (
-        <PhotoDetailsModal isOpen={modalOpen} closeModal={closeModal} selectedPhoto={selectedPhoto} />
+        <PhotoDetailsModal isOpen={modalOpen} closeModal={closeModal} selectedPhoto={selectedPhoto} liked={liked} setLiked={setLiked}/>
       )}
       {/* added functionality to close modal */}
     </div>

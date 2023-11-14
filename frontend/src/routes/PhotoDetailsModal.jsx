@@ -16,7 +16,8 @@ const getSimilarPhotos = photos.map((photo) => {
 });
 
 
-const PhotoDetailsModal = ({ isOpen, closeModal, selectedPhoto }) => {
+const PhotoDetailsModal = ({ isOpen, closeModal, selectedPhoto, liked,
+  setLiked }) => {
   console.log("Selected photo in modal:", selectedPhoto);
   if (!isOpen || !selectedPhoto) {
     return null;
@@ -31,7 +32,7 @@ const PhotoDetailsModal = ({ isOpen, closeModal, selectedPhoto }) => {
         <div className="photo-details-modal__header">
           <div className="photo-details-modal__top-bar">
             <div className="photo-details-modal__images">
-              <PhotoFavButton/>
+              <PhotoFavButton id={selectedPhoto.id} liked={liked} setLiked={setLiked} />
             <img className="photo-details-modal__image"
               src={selectedPhoto.urls.regular}
               alt={`Large version of ${selectedPhoto.id}`}
@@ -64,11 +65,11 @@ const PhotoDetailsModal = ({ isOpen, closeModal, selectedPhoto }) => {
                   console.log("Photodata of Clicked Photo", photoData)
                   return Object.values(photoData.similar_photos).map((similar) => (
                     <li className="photo-details-modal__images" key={similar.id}>
-                      <PhotoFavButton/>
-                      <img className="photo-details-modal__image"
-                        src={similar.urls.regular}
-                        alt={`Similar version of ${similar.id}`}
-                      />
+                      <PhotoFavButton id={similar.id} liked={liked} setLiked={setLiked} />
+                        <img className="photo-details-modal__image"
+                          src={similar.urls.regular}
+                          alt={`Similar version of ${similar.id}`}
+                        />
                       <div className="photo-details-modal__photographer-info">
                         <img
                           className="photo-details-modal__photographer-profile"
