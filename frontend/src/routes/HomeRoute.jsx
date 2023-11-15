@@ -6,23 +6,13 @@ import PhotoList from "components/PhotoList";
 import PhotoDetailsModal from "./PhotoDetailsModal";
 
 import photos from "mocks/photos";
+import useApplicationData from "hooks/useApplicationData";
 
 const HomeRoute = () => {
-  const [liked, setLiked] = useState([]);
-  const [modalOpen, setModalOpen] = useState(false);
-  const [selectedPhoto, setSelectedPhoto] = useState(null);
-
-  const openModal = (photoData) => {
-    setModalOpen(true);
-    setSelectedPhoto(photoData);
-  };
-
-  const closeModal = () => {
-    console.log("closing modal");
-    setModalOpen(false);
-    // setSelectedPhoto(null);
-  };
-  // function to close modal
+  const initialValues = {liked:[], modalaOpen:false, selectedPhoto:null}
+  const [liked, setLiked, openModal, modalOpen, selectedPhoto, closeModal] = useApplicationData(initialValues)
+  //too many imports?
+  //import in each file instead of giving it through props?
 
   return (
     <div className="home-route">
