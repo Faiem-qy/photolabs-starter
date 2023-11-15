@@ -10,12 +10,13 @@ const PhotoListItem = (props) => {
     user,
     liked,
     setLiked,
+    toggleLiked,
     openModal,
   } = props;
 
   return (
     <div className="photo-list__item" >
-      <PhotoFavButton id={id} liked={liked} setLiked={setLiked} />
+      <PhotoFavButton id={id} liked={liked} setLiked={setLiked} toggleLiked={toggleLiked} />
       <img
         className="photo-list__image"
         src={urls.regular}

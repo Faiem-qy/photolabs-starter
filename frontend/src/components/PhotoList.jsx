@@ -4,7 +4,7 @@ import "../styles/PhotoList.scss";
 import PhotoListItem from "./PhotoListItem";
 
 
-const PhotoList = ({ photoData, liked, setLiked, openModal }) => {
+const PhotoList = ({ photoData, liked, setLiked, toggleLiked, openModal }) => {
   return (
     <ul className="photo-list">
       {photoData.map((photo) => (
@@ -16,6 +16,7 @@ const PhotoList = ({ photoData, liked, setLiked, openModal }) => {
           user={photo.user}
           liked={liked}
           setLiked={setLiked}
+          toggleLiked={toggleLiked}
           openModal={openModal}
         />
       ))}

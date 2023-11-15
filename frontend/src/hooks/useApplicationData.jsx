@@ -7,6 +7,16 @@ export default function useApplicationData(){
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedPhoto, setSelectedPhoto] = useState(null);
 
+  const toggleLiked = (photoId) => {
+    setLiked((prev) => {
+      if (prev.includes(photoId)) {
+        return prev.filter((id) => id !== photoId);
+      } else {
+        return [...prev, photoId];
+      }
+    });
+  };
+
   const openModal = (photoData) => {
     setModalOpen(true);
     setSelectedPhoto(photoData);
@@ -18,5 +28,5 @@ export default function useApplicationData(){
     // setSelectedPhoto(null);
   };
 
-  return [liked, setLiked, openModal, modalOpen,selectedPhoto, closeModal]
+  return [liked, setLiked, toggleLiked, openModal, modalOpen,selectedPhoto, closeModal]
 };
