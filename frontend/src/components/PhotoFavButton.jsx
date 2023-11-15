@@ -3,13 +3,10 @@ import React, { useState , useEffect} from "react";
 import FavIcon from "./FavIcon";
 import "../styles/PhotoFavButton.scss";
 
-function PhotoFavButton({id, liked, setLiked, toggleLiked}) {
-  const [isActive, setIsActive] = useState(false);
+function PhotoFavButton({id, liked, likedPhoto}) {
 
   function handleClick(){
-    setIsActive(!isActive);
-    toggleLiked(id)
-    // setLiked((prev) => [...prev, id]);
+    likedPhoto(id)
     console.log(liked)
   };
 
@@ -17,7 +14,7 @@ function PhotoFavButton({id, liked, setLiked, toggleLiked}) {
   return (
     <div className="photo-list__fav-icon" onClick={handleClick}>
       <div className="photo-list__fav-icon-svg">
-        <FavIcon selected={isActive}/>
+        <FavIcon selected={liked.includes(id)}/>
       </div>
     </div>
   );

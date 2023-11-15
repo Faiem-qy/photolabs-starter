@@ -17,22 +17,22 @@ const getSimilarPhotos = photos.map((photo) => {
 });
 
 
-const PhotoDetailsModal = ({ isOpen, closeModal, selectedPhoto, liked, setLiked ,openModal }) => {
+const PhotoDetailsModal = ({ modalState, togglePhotoModal, selectedPhoto, liked, likedPhoto }) => {
   console.log("Selected photo in modal:", selectedPhoto);
-  if (!isOpen || !selectedPhoto) {
+  if (!modalState || !selectedPhoto) {
     return null;
   }
   
   return (
     <div className="photo-details-modal">
-      <button className="photo-details-modal__close-button" onClick={closeModal}>
+      <button className="photo-details-modal__close-button" onClick={togglePhotoModal}>
         <img src={closeSymbol} alt="close symbol" />
       </button>
       {selectedPhoto && (
         <div className="photo-details-modal__header">
           <div className="photo-details-modal__top-bar">
             <div className="photo-details-modal__images">
-              <PhotoFavButton id={selectedPhoto.id} liked={liked} setLiked={setLiked} />
+              <PhotoFavButton id={selectedPhoto.id} liked={liked} likedPhoto={likedPhoto} />
             <img className="photo-details-modal__image"
               src={selectedPhoto.urls.regular}
               alt={`Large version of ${selectedPhoto.id}`}
@@ -65,7 +65,7 @@ const PhotoDetailsModal = ({ isOpen, closeModal, selectedPhoto, liked, setLiked 
             {Object.values(similarPhotosObj).map((photoData, i) => {
               if (photoData.id === selectedPhoto.id) {
                   return(
-                    <PhotoList key={selectedPhoto.id} photoData={Object.values(photoData.similar_photos)} liked={liked} setLiked={setLiked} openModal={openModal} />
+                    <PhotoList key={selectedPhoto.id} photoData={Object.values(photoData.similar_photos)} liked={liked} likedPhoto={likedPhoto}/>
                   )
                 }
               })}

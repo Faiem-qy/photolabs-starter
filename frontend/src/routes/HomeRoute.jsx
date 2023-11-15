@@ -9,18 +9,15 @@ import photos from "mocks/photos";
 import useApplicationData from "hooks/useApplicationData";
 
 const HomeRoute = () => {
-  const initialValues = {modalaOpen:false, selectedPhoto:null}
-  const [liked, setLiked, toggleLiked, openModal, modalOpen, selectedPhoto, closeModal] = useApplicationData(initialValues)
-  //too many imports?
-  //import in each file instead of giving it through props?
+  const {modalData, selectedPhoto, togglePhotoModal, modalState, likedPhoto, liked} = useApplicationData()
 
   return (
     <div className="home-route">
-      <TopNavigation liked={liked} setLiked={setLiked} />
-      <PhotoList photoData={photos} liked={liked} setLiked={setLiked} openModal={openModal} toggleLiked={toggleLiked}/>
+      <TopNavigation liked={liked} />
+      <PhotoList photoData={photos} liked={liked} likedPhoto={likedPhoto} modalState={modalState} togglePhotoModal={togglePhotoModal} selectedPhoto={selectedPhoto} modalData={modalData}/>
       
-      {modalOpen && (
-        <PhotoDetailsModal isOpen={modalOpen} closeModal={closeModal} selectedPhoto={selectedPhoto} liked={liked} setLiked={setLiked} openModal={openModal}/>
+      {modalState && (
+        <PhotoDetailsModal modalState={modalState} togglePhotoModal={togglePhotoModal} selectedPhoto={selectedPhoto} liked={liked} likedPhoto={likedPhoto}/>
       )}
     </div>
   );
