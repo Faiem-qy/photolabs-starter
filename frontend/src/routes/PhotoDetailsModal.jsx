@@ -36,7 +36,6 @@ const PhotoDetailsModal = ({ isOpen, closeModal, selectedPhoto, liked, setLiked 
             <img className="photo-details-modal__image"
               src={selectedPhoto.urls.regular}
               alt={`Large version of ${selectedPhoto.id}`}
-              // display large photo when modal is opened
             />
             </div>
           </div>
@@ -54,45 +53,25 @@ const PhotoDetailsModal = ({ isOpen, closeModal, selectedPhoto, liked, setLiked 
               </div>
             </div>
           </div>
-            <hr></hr>
 
 
+        </div>
+      )}
+        <hr></hr>
           <div className="similar-photos">
             <h3 className="photo-details-modal__images">Similar Photos</h3>
             <div className="photo-details-modal__photographer-details">
             <>   
             {Object.values(similarPhotosObj).map((photoData, i) => {
               if (photoData.id === selectedPhoto.id) {
-                // return Object.values(photoData.similar_photos).map((similar, i) => (
                   return(
-                    // console.log("Photodata of Clicked Photo", Object.values(photoData.similar_photos))
                     <PhotoList key={selectedPhoto.id} photoData={Object.values(photoData.similar_photos)} liked={liked} setLiked={setLiked} openModal={openModal} />
                   )
-                    // <li className="photo-details-modal__images" key={similar.id}>
-                      // <PhotoFavButton id={similar.id} liked={liked} setLiked={setLiked} />
-                    //     <img className="photo-details-modal__image"
-                    //       src={similar.urls.regular}
-                    //       alt={`Similar version of ${similar.id}`}
-                    //     />
-                    //   <div className="photo-details-modal__photographer-info">
-                    //     <img
-                    //       className="photo-details-modal__photographer-profile"
-                    //       src={similar.user.profile}
-                    //     />
-                    //     <span>{selectedPhoto.user.name}</span>
-                    //     <div className="photo-details-modal__photographer-location">
-                    //       {similar.location.city}, {similar.location.country}
-                    //     </div>
-                    //   </div>
-                    // </li>
-                  // ));
                 }
               })}
             </>
             </div>
           </div>
-        </div>
-      )}
     </div>
   );
 };

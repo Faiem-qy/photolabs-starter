@@ -14,9 +14,6 @@ const PhotoList = ({ photoData, liked, setLiked, openModal }) => {
           location={photo.location}
           urls={photo.urls}
           user={photo.user}
-          // username={photo.user.username}
-          // imageSource={photo.urls.regular}
-          // profile={photo.user.profile}
           liked={liked}
           setLiked={setLiked}
           openModal={openModal}

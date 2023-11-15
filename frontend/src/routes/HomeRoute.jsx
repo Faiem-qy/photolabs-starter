@@ -13,10 +13,8 @@ const HomeRoute = () => {
   const [selectedPhoto, setSelectedPhoto] = useState(null);
 
   const openModal = (photoData) => {
-    // console.log("HomeRoute - Selected photo data - comes from PhotoListItem", photoData);
     setModalOpen(true);
     setSelectedPhoto(photoData);
-    // added console.log to log the data of the photo when the photo is clicked and the modal is open
   };
 
   const closeModal = () => {
@@ -30,11 +28,10 @@ const HomeRoute = () => {
     <div className="home-route">
       <TopNavigation liked={liked} setLiked={setLiked} />
       <PhotoList photoData={photos} liked={liked} setLiked={setLiked} openModal={openModal} />
-      {/* <PhotoDetailsModal isOpen={modalOpen} onClose={closeModal} /> */}
+      
       {modalOpen && (
         <PhotoDetailsModal isOpen={modalOpen} closeModal={closeModal} selectedPhoto={selectedPhoto} liked={liked} setLiked={setLiked} openModal={openModal}/>
       )}
-      {/* added functionality to close modal */}
     </div>
   );
 };

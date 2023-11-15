@@ -8,17 +8,13 @@ const PhotoListItem = (props) => {
     location,
     urls,
     user,
-    // username,
-    // imageSource,
-    // profile,
     liked,
     setLiked,
     openModal,
-  } = props; // added openModal
+  } = props;
 
   return (
     <div className="photo-list__item" >
-      {/* added onclick listener to open modal */}
       <PhotoFavButton id={id} liked={liked} setLiked={setLiked} />
       <img
         className="photo-list__image"
