@@ -9,11 +9,11 @@ import PhotoDetailsModal from "./PhotoDetailsModal";
 import useApplicationData from "hooks/useApplicationData";
 
 const HomeRoute = () => {
-  const {modalData, selectedPhoto, togglePhotoModal, modalState, likedPhoto, liked, photoData} = useApplicationData()
+  const {modalData, selectedPhoto, togglePhotoModal, modalState, likedPhoto, liked, photoData, topicData} = useApplicationData()
 
   return (
     <div className="home-route">
-      <TopNavigation liked={liked} />
+      <TopNavigation liked={liked} topicData={topicData}/>
       <PhotoList photoData={photoData} liked={liked} likedPhoto={likedPhoto} modalState={modalState} togglePhotoModal={togglePhotoModal} selectedPhoto={selectedPhoto} modalData={modalData}/>
       
       {modalState && (
