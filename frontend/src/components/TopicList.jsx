@@ -3,7 +3,8 @@ import React from "react";
 import "../styles/TopicList.scss";
 import TopicListItem from "./TopicListItem";
 
-const TopicList = ({topicData}) => {
+const TopicList = ({topicData, topicIdChosen}) => {
+  
   return (
     <div className="top-nav-bar__topic-list">
       {topicData.map((topic) => (
@@ -12,6 +13,7 @@ const TopicList = ({topicData}) => {
           slug={topic.slug}
           title={topic.title}
           id={topic.id}
+          topicIdChosen={topicIdChosen}
         />
         ))}
     </div>

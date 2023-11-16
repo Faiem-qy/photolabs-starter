@@ -1,8 +1,7 @@
 // responsible for loading the initial data from the API and passing data to other components
 // will also provide the actions to update the state, causing the component to render.
-import React, { useEffect, useReducer } from "react";
+import React, { useEffect, useReducer,useCallback } from "react";
 import axios from "axios";
-import topics from "mocks/topics";
 
 export const ACTIONS = {
   TOGGLE_MODAL: "TOGGLE_MODAL",
@@ -10,6 +9,7 @@ export const ACTIONS = {
   LIKED_PHOTO: "LIKED_PHOTO",
   SET_PHOTO_DATA: "SET_PHOTO_DATA",
   GET_TOPICS: 'GET_TOPICS',
+  GET_TOPIC_ID:'GET_TOPIC_ID',
   GET_PHOTOS_BY_TOPICS: 'GET_PHOTOS_BY_TOPICS'
 };
 
@@ -25,6 +25,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         topicData: action.payload,
+      };
+      case "GET_TOPIC_ID":
+      return {
+        ...state,
+        topicId: action.payload,
       };
       case "GET_PHOTOS_BY_TOPICS":
       return {
@@ -65,6 +70,7 @@ export default function useApplicationData() {
     liked: [],
     photoData: [],
     topicData: [],
+    topicId:null,
     photoByTopicData:[]
   };
   const [state, dispatch] = useReducer(reducer, initialStates);
@@ -82,6 +88,10 @@ export default function useApplicationData() {
     console.log(photoId);
   };
 
+  const topicIdChosen = (topicId) => {
+    dispatch({ type: ACTIONS.GET_TOPIC_ID, payload: topicId });
+  };
+
 
 useEffect(() => {
   const photosPromise = axios.get("/api/photos");
@@ -90,22 +100,25 @@ useEffect(() => {
 
   Promise.all(promisesArr)
   .then((responseArr) => {
-    console.log(responseArr)
+    // console.log(responseArr)
     const photos = responseArr[0].data;
     const topics = responseArr[1].data;
-    console.log(topics)
+    // console.log(topics)
     dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: photos })
     dispatch({ type: ACTIONS.GET_TOPICS, payload: topics })
   })
   .catch((error) => console.error("Error fetching data:", error));
 }, []);
 
-  // useEffect(() => {
-  //   axios.get("/api/topics/photos/:topic_id")
-  //   .then((data) => console.log(data.data))
-  //   // .then((data) => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data.data }))
-  //   // .catch((error) => console.error("Error fetching data:", error));
-  // }, []);
+useEffect(() => {
+  axios.get(`api/topics/photos/${state.topicId}`)
+  .then((response) => {
+    // const data = response.data;
+    dispatch({ type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: response.data })
+    console.log("USE APP DATA", response.data, state.photoByTopicData)
+  })
+  .catch((error) => console.error("Error fetching data:", error.message));
+}, [state.topicId]);
     
   return {
     modalData,
@@ -115,6 +128,9 @@ useEffect(() => {
     likedPhoto,
     liked: state.liked,
     photoData: state.photoData,
-    topicData: state.topicData
+    topicData: state.topicData,
+    topicIdChosen,
+    topicId: state.topicId,
+    photoByTopicData: state.photoByTopicData
   };
 }
