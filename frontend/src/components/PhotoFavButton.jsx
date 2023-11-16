@@ -7,7 +7,7 @@ function PhotoFavButton({id, liked, likedPhoto}) {
 
   function handleClick(){
     likedPhoto(id)
-    console.log(liked)
+    // console.log(liked)
   };
 
 

@@ -17,7 +17,7 @@ const HomeRoute = () => {
       <PhotoList photoData={photoData} liked={liked} likedPhoto={likedPhoto} modalState={modalState} togglePhotoModal={togglePhotoModal} selectedPhoto={selectedPhoto} modalData={modalData} topicId={topicId} photoByTopicData={photoByTopicData}/>
       
       {modalState && (
-        <PhotoDetailsModal modalState={modalState} togglePhotoModal={togglePhotoModal} selectedPhoto={selectedPhoto} liked={liked} likedPhoto={likedPhoto}/>
+        <PhotoDetailsModal modalState={modalState} togglePhotoModal={togglePhotoModal} selectedPhoto={selectedPhoto} liked={liked} likedPhoto={likedPhoto} photoData={photoData}/>
       )}
     </div>
   );

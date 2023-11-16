@@ -2,23 +2,24 @@ import React from "react";
 
 import "../styles/PhotoDetailsModal.scss";
 import closeSymbol from "../assets/closeSymbol.svg";
-import photos from "mocks/photos";
 import PhotoFavButton from "components/PhotoFavButton";
 import PhotoList from "components/PhotoList";
 
-const similarPhotosObj={}
-const getSimilarPhotos = photos.map((photo) => {
-  let id = photo.id;
-  similarPhotosObj[id] = {
-    id: photo.id,
-    similar_photos: photo.similar_photos,
-  }
-  return similarPhotosObj[id];
-});
 
 
-const PhotoDetailsModal = ({ modalState, togglePhotoModal, selectedPhoto, liked, likedPhoto }) => {
-  console.log("Selected photo in modal:", selectedPhoto);
+const PhotoDetailsModal = ({ modalState, togglePhotoModal, selectedPhoto, liked, likedPhoto, photoData }) => {
+
+  const similarPhotosObj={}
+  const getSimilarPhotos = photoData.map((photo) => {
+    let id = photo.id;
+    similarPhotosObj[id] = {
+      id: photo.id,
+      similar_photos: photo.similar_photos,
+    }
+    return similarPhotosObj[id];
+  });
+
+  // console.log("Selected photo in modal:", selectedPhoto);
   if (!modalState || !selectedPhoto) {
     return null;
   }
@@ -62,10 +63,10 @@ const PhotoDetailsModal = ({ modalState, togglePhotoModal, selectedPhoto, liked,
             <h3 className="photo-details-modal__images">Similar Photos</h3>
             <div className="photo-details-modal__photographer-details">
             <>   
-            {Object.values(similarPhotosObj).map((photoData, i) => {
-              if (photoData.id === selectedPhoto.id) {
+            {Object.values(similarPhotosObj).map((photos, i) => {
+              if (photos.id === selectedPhoto.id) {
                   return(
-                    <PhotoList key={selectedPhoto.id} photoData={Object.values(photoData.similar_photos)} liked={liked} likedPhoto={likedPhoto}/>
+                    <PhotoList key={selectedPhoto.id} photoData={Object.values(photos.similar_photos)} liked={liked} likedPhoto={likedPhoto}/>
                   )
                 }
               })}

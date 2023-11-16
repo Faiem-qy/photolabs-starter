@@ -85,7 +85,7 @@ export default function useApplicationData() {
 
   const likedPhoto = (photoId) => {
     dispatch({ type: ACTIONS.LIKED_PHOTO, payload: photoId });
-    console.log(photoId);
+    // console.log(photoId);
   };
 
   const topicIdChosen = (topicId) => {
@@ -115,7 +115,7 @@ useEffect(() => {
   .then((response) => {
     // const data = response.data;
     dispatch({ type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: response.data })
-    console.log("USE APP DATA", response.data, state.photoByTopicData)
+    // console.log("USE APP DATA", response.data, state.photoByTopicData)
   })
   .catch((error) => console.error("Error fetching data:", error.message));
 }, [state.topicId]);

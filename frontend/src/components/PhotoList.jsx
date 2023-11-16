@@ -10,7 +10,7 @@ const PhotoList = ({ photoData, liked, likedPhoto, modalState, togglePhotoModal,
   const photos = topicId ? photoByTopicData : photoData;
   // console.log("PHOHTOS",photos)
   // console.log("ID TOPIC",topicId)
-  console.log("BY TOPIC",photoByTopicData)
+  // console.log("BY TOPIC",photoByTopicData)
   
   // Check if photos is not null or undefined before mapping
   //This prevents the subsequent map function from being called on a null value
