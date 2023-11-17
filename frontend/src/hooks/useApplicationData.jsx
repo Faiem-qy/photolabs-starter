@@ -1,6 +1,6 @@
 // responsible for loading the initial data from the API and passing data to other components
 // will also provide the actions to update the state, causing the component to render.
-import React, { useEffect, useReducer,useCallback } from "react";
+import React, { useEffect, useReducer } from "react";
 import axios from "axios";
 
 export const ACTIONS = {

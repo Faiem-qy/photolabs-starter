@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import "../styles/HomeRoute.scss";
 import TopNavigation from "components/TopNavigationBar";
@@ -11,10 +11,12 @@ import useApplicationData from "hooks/useApplicationData";
 const HomeRoute = () => {
   const {modalData, selectedPhoto, togglePhotoModal, modalState, likedPhoto, liked, photoData, topicData, topicId, topicIdChosen, photoByTopicData} = useApplicationData()
 
+  const photos = topicId ? photoByTopicData : photoData;
+
   return (
     <div className="home-route">
       <TopNavigation liked={liked} topicIdChosen={topicIdChosen} topicData={topicData}/>
-      <PhotoList photoData={photoData} liked={liked} likedPhoto={likedPhoto} modalState={modalState} togglePhotoModal={togglePhotoModal} selectedPhoto={selectedPhoto} modalData={modalData} topicId={topicId} photoByTopicData={photoByTopicData}/>
+      <PhotoList photoData={photos} liked={liked} likedPhoto={likedPhoto} togglePhotoModal={togglePhotoModal} modalData={modalData}/>
       
       {modalState && (
         <PhotoDetailsModal modalState={modalState} togglePhotoModal={togglePhotoModal} selectedPhoto={selectedPhoto} liked={liked} likedPhoto={likedPhoto} photoData={photoData}/>

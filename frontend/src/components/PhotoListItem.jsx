@@ -10,9 +10,7 @@ const PhotoListItem = (props) => {
     user,
     liked,
     likedPhoto,
-    modalState,
     togglePhotoModal,
-    selectedPhoto,
     modalData
   } = props;
 
