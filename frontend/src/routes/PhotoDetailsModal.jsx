@@ -54,7 +54,7 @@ const PhotoDetailsModal = ({ modalState, togglePhotoModal, selectedPhoto, liked,
         <hr></hr>
           <div className="similar-photos">
             <h3 className="photo-details-modal__images">Similar Photos</h3>
-            <div className="photo-details-modal__photographer-details">
+            <div className="photo-details-modal__header">
               <PhotoList key={similar.id} photoData={Object.values(similar.similar_photos)} liked={liked} likedPhoto={likedPhoto}/>
             </div>
           </div>
