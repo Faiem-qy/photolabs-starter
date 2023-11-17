@@ -21,6 +21,16 @@ PhotoLabs is a React-based single-page application (SPA) that allows users to vi
 - PostgreSQL
 - SASS
 
+## Screenshots
+Photolabs - Home Page showing clickable categories in the nav bar
+!["Screenshot showing Home Page"](/docs/photo_list_home_page.png)
+
+Photolabs - Modal
+!["Screenshot showing Modal Pop Up"](/docs/modal_image.png)
+
+Photolabs - Liked Photos
+!["Screenshot showing User can Like Photos"](/docs/like_photos.png)
+
 ## Create The DB
 
 Login to PostgreSQL. 
