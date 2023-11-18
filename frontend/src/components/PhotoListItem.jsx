@@ -19,7 +19,6 @@ const PhotoListItem = (props) => {
     if(!modalState && modalState !== undefined){
       togglePhotoModal();
       modalData(props);
-      console.log(`the modal is ${modalState}`)
     }
   }
 

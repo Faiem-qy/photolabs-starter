@@ -9,7 +9,7 @@ const PhotoList = ({ photoData, liked, likedPhoto, togglePhotoModal,modalData, m
   // Check if photos is not null or undefined before mapping
   //This prevents the map function from being called on a null value
   if (!photoData) {
-    return <p>Loading...</p>;
+    return <p style={{textAlign:'center'}}>Loading...</p>;
   }
 
   return (
