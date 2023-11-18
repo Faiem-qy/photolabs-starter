@@ -12,7 +12,6 @@ const PhotoDetailsModal = ({ modalState, togglePhotoModal, selectedPhoto, liked,
 
   const similar = getSimilarPhotos(photoData)
 
-  // console.log("Selected photo in modal:", selectedPhoto);
   if (!modalState || !selectedPhoto) {
     return null;
   }

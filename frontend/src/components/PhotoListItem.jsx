@@ -11,9 +11,17 @@ const PhotoListItem = (props) => {
     liked,
     likedPhoto,
     togglePhotoModal,
-    modalData
+    modalData,
+    modalState
   } = props;
 
+  const handleClick = () => {
+    if(!modalState && modalState !== undefined){
+      togglePhotoModal();
+      modalData(props);
+      console.log(`the modal is ${modalState}`)
+    }
+  }
 
   return (
     <div className="photo-list__item" >
@@ -22,7 +30,7 @@ const PhotoListItem = (props) => {
         className="photo-list__image"
         src={urls.regular}
         alt={`Photo ${id}`}
-        onClick={() => {modalData(props); togglePhotoModal()}}
+        onClick={() => handleClick()}
       />
       <div className="photo-list__user-details">
         <img

@@ -4,7 +4,7 @@ import "../styles/PhotoList.scss";
 import PhotoListItem from "./PhotoListItem";
 
 
-const PhotoList = ({ photoData, liked, likedPhoto, togglePhotoModal,modalData}) => {
+const PhotoList = ({ photoData, liked, likedPhoto, togglePhotoModal,modalData, modalState}) => {
   
   // Check if photos is not null or undefined before mapping
   //This prevents the map function from being called on a null value
@@ -25,6 +25,7 @@ const PhotoList = ({ photoData, liked, likedPhoto, togglePhotoModal,modalData}) 
           likedPhoto={likedPhoto}
           togglePhotoModal={togglePhotoModal}
           modalData={modalData}
+          modalState={modalState}
         />
       ))}
     </ul>

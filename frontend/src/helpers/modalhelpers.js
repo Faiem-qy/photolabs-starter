@@ -10,7 +10,6 @@ const getSimilarPhotos = (photoData) =>{
       similar_photos: photo.similar_photos,
     }
   });
-  // console.log(similarPhotosObj[id])
   return similarPhotosObj[id];
 }
 

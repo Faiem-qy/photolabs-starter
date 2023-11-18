@@ -16,7 +16,7 @@ const HomeRoute = () => {
   return (
     <div className="home-route">
       <TopNavigation liked={liked} topicIdChosen={topicIdChosen} topicData={topicData}/>
-      <PhotoList photoData={photos} liked={liked} likedPhoto={likedPhoto} togglePhotoModal={togglePhotoModal} modalData={modalData}/>
+      <PhotoList photoData={photos} liked={liked} likedPhoto={likedPhoto} togglePhotoModal={togglePhotoModal} modalData={modalData} modalState={modalState}/>
       
       {modalState && (
         <PhotoDetailsModal modalState={modalState} togglePhotoModal={togglePhotoModal} selectedPhoto={selectedPhoto} liked={liked} likedPhoto={likedPhoto} photoData={photoData}/>

@@ -14,7 +14,6 @@ export const ACTIONS = {
 };
 
 const reducer = (state, action) => {
-  // console.log("Current State:", state);
   switch (action.type) {
     case "SET_PHOTO_DATA":
       return {
@@ -85,7 +84,6 @@ export default function useApplicationData() {
 
   const likedPhoto = (photoId) => {
     dispatch({ type: ACTIONS.LIKED_PHOTO, payload: photoId });
-    // console.log(photoId);
   };
 
   const topicIdChosen = (topicId) => {
@@ -100,10 +98,8 @@ useEffect(() => {
 
   Promise.all(promisesArr)
   .then((responseArr) => {
-    // console.log(responseArr)
     const photos = responseArr[0].data;
     const topics = responseArr[1].data;
-    // console.log(topics)
     dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: photos })
     dispatch({ type: ACTIONS.GET_TOPICS, payload: topics })
   })
@@ -113,9 +109,7 @@ useEffect(() => {
 useEffect(() => {
   axios.get(`api/topics/photos/${state.topicId}`)
   .then((response) => {
-    // const data = response.data;
     dispatch({ type: ACTIONS.GET_PHOTOS_BY_TOPICS, payload: response.data })
-    // console.log("USE APP DATA", response.data, state.photoByTopicData)
   })
   .catch((error) => console.error("Error fetching data:", error.message));
 }, [state.topicId]);
