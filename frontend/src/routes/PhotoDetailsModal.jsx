@@ -19,7 +19,7 @@ const PhotoDetailsModal = ({ modalState, togglePhotoModal, selectedPhoto, liked,
   return (
     <div className="photo-details-modal">
       <button className="photo-details-modal__close-button" onClick={togglePhotoModal}>
-        <img src={closeSymbol} alt="close symbol" />
+         <b>X</b>
       </button>
       {selectedPhoto && (
         <div className="photo-details-modal__header">

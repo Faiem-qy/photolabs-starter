@@ -1,6 +1,7 @@
 import React from "react";
 
-import "./App.scss";
+// import "./App.scss";
+import "./index.scss";
 import HomeRoute from "routes/HomeRoute";
 
 

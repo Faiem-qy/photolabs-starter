@@ -14,7 +14,14 @@
   text-decoration: overline;
   font-weight: 500;
   font-size: 24px;
-  color: #111;
+  background-color: var(--primary-background);
   text-underline-position: auto;
   margin-left: 24px;
+}
+
+.right-nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0px 0px 10px 0px;
 }
